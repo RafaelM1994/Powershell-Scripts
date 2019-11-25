@@ -152,15 +152,16 @@ $n = 0
 foreach ($PhysicalServer in $servers){
     
     #Get the VMStatus, TotalMemory, MemoryDemand, MemoryStatus, DiskSize, OperatingSystem and Domain of the vm
-    $html = $PhysicalServer | Sort-Object -Property Name | Select-Object name,@{ Name = 'VMStatus'; Expression = {  $_.VirtualMachineState }},
-                                                    @{Name = 'TotalMemory';Expression = {((Convert-Size -From MB -To KB -Value ($_.memoryassignedmb).tostring() `
-                                                    | Convert-Size -from KB -to GB -Precision 1)).tostring() + ' GB'}},
-                                                    @{Name = 'MemoryDemand';Expression = {((Convert-Size -From MB -To KB -Value ($_.DynamicMemoryDemandMB).tostring() `
-                                                    | Convert-Size -from KB -to GB -Precision 1)).tostring() + ' GB'}},
-                                                    @{Name = 'MemoryStatus';Expression = {$_.DynamicMemoryStatus}},
-                                                    @{Name = 'DiskSize';Expression = {([math]::Round($_.totalsize /1gb)).tostring() + ' GB'}},           
-                                                    @{Name = 'OperatingSystem';Expression = {$_.OperatingSystem}},
-                                                    @{Name = 'Domain';Expression = {$_.Tag}}
+    $html = $PhysicalServer | Sort-Object -Property Name | 
+                    Select-Object name,@{ Name = 'VMStatus'; Expression = {  $_.VirtualMachineState }},
+                    @{Name = 'TotalMemory';Expression = {((Convert-Size -From MB -To KB -Value ($_.memoryassignedmb).tostring() `
+                    | Convert-Size -from KB -to GB -Precision 1)).tostring() + ' GB'}},
+                    @{Name = 'MemoryDemand';Expression = {((Convert-Size -From MB -To KB -Value ($_.DynamicMemoryDemandMB).tostring() `
+                    | Convert-Size -from KB -to GB -Precision 1)).tostring() + ' GB'}},
+                    @{Name = 'MemoryStatus';Expression = {$_.DynamicMemoryStatus}},
+                    @{Name = 'DiskSize';Expression = {([math]::Round($_.totalsize /1gb)).tostring() + ' GB'}},           
+                    @{Name = 'OperatingSystem';Expression = {$_.OperatingSystem}},
+                    @{Name = 'Domain';Expression = {$_.Tag}}
 
     #Convert the previous result in html
     $htmlhv += $html | ConvertTo-HTML -PreContent "<Center><h2>$($PhysicalServers[$n].ToUpper())</h2></Center>"
