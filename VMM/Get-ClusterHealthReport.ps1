@@ -7,7 +7,7 @@
 
 .NOTES
     Author: Rafael de Jesus Medeiros <rafael_medeiros94@hotmail.com.br>
-    GitHub: 
+    GitHub: https://github.com/RafaelM1994/Powershell-Scripts/
     Creation Date: 11/09/2019
 
     In order to get the information from the cluster, you need to have the System Center Virtual Machine Manager installed.
