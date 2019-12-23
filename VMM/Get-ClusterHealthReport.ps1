@@ -126,7 +126,7 @@ foreach ($node in ($Cluster.nodes.name | Sort-Object)){
 $date = Get-Date -format "dd-MMM-yyyy"
 $htmlhv = ConvertTo-HTML -Title "$PageTitle" -PreContent "<Center><h1>$PageTitle ($date)</h1></center>"
 
-#Put the cluster memory on the page
+#Put the cluster Information on the page
 $htmlhv += ConvertTo-Html -Body "<table><center>$Clusterhtml</center></table>"
 
 #put each vm to the server array that this vm belongs to 
