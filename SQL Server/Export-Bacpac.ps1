@@ -3,10 +3,24 @@
 $csv = Import-Csv "C:\temp\azDatabases.csv"
 
 ##TODO
+
+#Dependencies
+
+#If Az.Sql Module is not installed. download and install it.
+$azmodule = "az.Sql"
+if (-not (get-module -ListAvailable $azmodule)) {
+    write-host "Installing $azmodule module..." -ForegroundColor Yellow
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    Install-Module $azmodule -Force
+}else{
+    write-host "$azmodule is installed." -ForegroundColor Green
+}
+
+#If SQLPackage is not installed, download and install it.
+
 $bin = "$binpath\SqlPackage.exe"
 $binpath = "C:\Program Files\Microsoft SQL Server\150\DAC\bin"
 
-#If SQLPackage is not installed, download and install it.
 if (Test-Path $bin) {
     write-host "SQL Package is installed" -ForegroundColor Green
     set-location $binpath
