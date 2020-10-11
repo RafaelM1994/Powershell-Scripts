@@ -6,7 +6,7 @@
 .NOTES
     Author: Rafael de Jesus Medeiros <rafael_medeiros94@hotmail.com.br>
     GitHub: https://github.com/RafaelM1994/Powershell-Scripts/
-    Creation Date: 02/15/2020
+    Creation Date: 10/11/2020
     
 #>
 
@@ -41,7 +41,7 @@ else {
 
 #Forward the emails from this mailbox to another
 Write-Host "Configuring email forwarding from $user to $forwardedUserEmail..." -ForegroundColor Yellow
-Set-Mailbox $user  -ForwardingSmtpAddress:$ForwardedUserEmail -Verbose
+Set-Mailbox $user -ForwardingAddress $NULL -ForwardingSmtpAddress $NULL
 
 #Checking if the rule has been applied successfully
 $forwarding = (Get-Mailbox $user).forwardingSmtpAddress
