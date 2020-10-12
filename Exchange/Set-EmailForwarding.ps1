@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Script to Convert a Enable Email forwarding in a mailbox
+    Script to enable Email forwarding in a mailbox
 .DESCRIPTION
     This script will enable email forwarding in a mailbox.
 .NOTES
