@@ -1,8 +1,8 @@
 <#
 .SYNOPSIS
-    Script to Convert a Enable Email forwarding in a mailbox
+    Script to disable Email forwarding rule in a mailbox
 .DESCRIPTION
-    This script will enable email forwarding in a mailbox.
+    This script will disable email forwarding in a mailbox.
 .NOTES
     Author: Rafael de Jesus Medeiros <rafael_medeiros94@hotmail.com.br>
     GitHub: https://github.com/RafaelM1994/Powershell-Scripts/
