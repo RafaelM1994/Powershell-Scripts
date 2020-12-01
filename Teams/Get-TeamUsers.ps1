@@ -33,7 +33,7 @@ function Get-TeamUsersToCSV {
 
 }
 
-$TeamGroupName = "CC.Adobe"
+$TeamGroupName = "Group.Name"
 $FilePath = "C:\Temp\$TeamGroupName.csv"
 
 Get-TeamUsersToCSV -TeamGroupName $TeamGroupName -OutputPath $FilePath
